@@ -20,13 +20,10 @@ This middleware removes the raw body from the request. Best used after the reque
 # Usage
 
 ```php
-$server = new Server(new MiddlewareRunner([
-    /** Other middleware */
-    new RequestBodyBufferMiddleware(16 * 1024 * 1024), // 16 MiB
-    new RequestBodyParserMiddleware(),
+$server = new Server([
     new ClearBodyMiddleware(),
     /** Other middleware */
-]));
+]);
 ```
 
 # License
