@@ -10,9 +10,12 @@ use WyriHaximus\React\Http\Middleware\ClearBodyMiddleware;
 use function Clue\React\Block\await;
 use function RingCentral\Psr7\stream_for;
 
+/**
+ * @internal
+ */
 final class ClearBodyMiddlewareTest extends TestCase
 {
-    public function testWithHeaders()
+    public function testWithHeaders(): void
     {
         $request = (new ServerRequest('GET', 'https://example.com/'))->withBody(stream_for('foo.bar'));
         $middleware = new ClearBodyMiddleware();
